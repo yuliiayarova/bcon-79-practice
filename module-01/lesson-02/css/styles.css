@@ -1,0 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+
+[class^="out-"] {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  min-height: calc(1.5rem * 1.6);
+  background-color: lightgrey;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.panel {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.formated {
+  white-space: pre-wrap;
+}
