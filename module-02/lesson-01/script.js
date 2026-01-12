@@ -187,20 +187,88 @@ function f10() {
 const select110 = document.querySelector(".s-110");
 const out11 = document.querySelector(".out-11");
 
-select110.onchange = f10;
+select110.onchange = f11;
 
-function f10() {
+function f11() {
   out11.textContent = select110.value;
 }
 
 // Task 12
 // Дано input .i-120. Після натискання кнопки отримайте значення з input в змінну, а потім виведіть в .out-12 typeof отриманої змінної. Typeof дозволяє визначити тип даних.
 
+const input12 = document.querySelector(".i-120");
+const btn12 = document.querySelector(".b-12");
+const out12 = document.querySelector(".out-12");
+
+btn12.onclick = f12;
+
+function f12() {
+  const a = input12.value;
+  out12.textContent = typeof a;
+}
+
 // Task 13
 // Дано input i-130. На відміну від попереднього завдання - input[type="number"]. Після натискання кнопки отримайте значення з input в змінну, а потім виведіть в out-13 typeof отриманої змінної. Typeof дозволяє визначити тип даних. Якщо ви правильно все зробили - то дивно, але тип даних буде string! Подумайте чому так?
+
+const input13 = document.querySelector(".i-130");
+const btn13 = document.querySelector(".b-13");
+const out13 = document.querySelector(".out-13");
+
+btn13.onclick = f13;
+
+function f13() {
+  const b = input13.value;
+  out13.textContent = typeof b;
+}
 
 // Task 14
 // Дано input .i-141 і .i-142, [type=number]. Дано select .s-143, який містить чотири операції - +, -, *, / . Дана кнопка b-14, при натисканні на яку спрацьовує функція f14. Функція виводить в .out-14 результат операцій, обраних в 3-му select, до чисел, введених в першому і другому input. Наприклад вибрано 1 13 +, потрібно вивести результат операції 1+13 тобто 14.
 
+const input141 = document.querySelector(".i-141");
+const input142 = document.querySelector(".i-142");
+const select143 = document.querySelector(".s-143");
+const btn14 = document.querySelector(".b-14");
+const out14 = document.querySelector(".out-14");
+
+btn14.onclick = f14;
+
+function f14() {
+  const c = Number.parseFloat(input141.value);
+  const d = Number.parseFloat(input142.value);
+  const operation = select143.value;
+  let result;
+  if (operation === "+") {
+    result = c + d;
+  } else if (operation === "-") {
+    result = c - d;
+  } else if (operation === "*") {
+    result = c * d;
+  } else if (operation === "/") {
+    result = c / d;
+  }
+  out14.textContent = result;
+}
+
 // Task 15
 // Дано select .s-151 і .s-152, кожен з яких містить 1 і 0. Дано select .s-153, який містить дві операції - && і || . Дана кнопка .b-15, при натисканні на яку спрацьовує функція f15. Функція виводить в .out-15 результат логічних операцій, обраних в 3 select, до чисел, обраних в першому і другому select. Наприклад, вибрано 1 1 &&, потрібно вивести результат операції 1&&1 тобто 1 або 0.
+
+const select151 = document.querySelector(".s-151");
+const select152 = document.querySelector(".s-152");
+const select153 = document.querySelector(".s-153");
+const btn15 = document.querySelector(".b-15");
+const out15 = document.querySelector(".out-15");
+
+btn15.onclick = f15;
+
+function f15() {
+  const x = Number(select151.value);
+  const y = Number(select152.value);
+  const option = select153.value;
+  let res;
+  if (option === "&&") {
+    res = x && y;
+  } else {
+    res = x || y;
+  }
+  out15.textContent = res;
+}
