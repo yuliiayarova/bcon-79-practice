@@ -172,7 +172,7 @@ btn18.onclick = t18;
 function t18() {
   const a = Number.parseFloat(input18.value);
   // const a = input18.value;
-  out18.textContent = parseFloat(a);
+  out18.textContent = a;
   input18.value = "";
 }
 
