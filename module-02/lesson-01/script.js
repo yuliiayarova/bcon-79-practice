@@ -138,8 +138,6 @@ function f8() {
     case 3:
       out8.textContent = "three";
       break;
-    default:
-      break;
   }
 }
 
