@@ -277,7 +277,36 @@ function fn13() {
 // - вивести в .out-14 value вибраного input
 // Перевірити, чи вибраний елемент, можна за допомогою elem[i].checked.
 
+const inputs14 = document.querySelectorAll(".i-14");
+const btn14 = document.querySelector(".b-14");
+const out14 = document.querySelector(".out-14");
+
+btn14.onclick = fn14;
+function fn14() {
+  let result = "";
+
+  for (let i = 0; i < inputs14.length; i++) {
+    if (inputs14[i].checked) {
+      result = inputs14[i].value;
+    }
+  }
+  out14.textContent = result;
+}
+
 //  Task 15
 // Кнопка .b-15 запускає функцію fn15. Функція повинна виводити наступну послідовність в .out-15:
 // 10_0_9_1_8_2_7_3_6_4_5_5_4_6_3_7_2_8_1_9_0_10_
 // Підказка (10 - i) + '_' + i + '_'
+
+const btn15 = document.querySelector(".b-15");
+const out15 = document.querySelector(".out-15");
+
+btn15.onclick = fn15;
+
+function fn15() {
+  let result = "";
+  for (let i = 0; i <= 10; i++) {
+    result += 10 - i + "_" + i + "_";
+  }
+  out15.textContent = result;
+}
