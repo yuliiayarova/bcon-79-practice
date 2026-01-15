@@ -288,9 +288,10 @@ function fn14() {
   for (let i = 0; i < inputs14.length; i++) {
     if (inputs14[i].checked) {
       result = inputs14[i].value;
+      out14.textContent = result;
+      return;
     }
   }
-  out14.textContent = result;
 }
 
 //  Task 15
