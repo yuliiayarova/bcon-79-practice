@@ -283,6 +283,49 @@ function fn17() {
 
 // Task-18
 
-// Task-19
+const ar18 = [15, 24, 13, 78, 21, 4, 45, 67];
+const btn18 = document.querySelector(".b-18");
+const out18 = document.querySelector(".out-18");
 
+btn18.onclick = fn18;
+
+function fn18() {
+  let max = ar18[0];
+  for (let i = 1; i < ar18.length; i++) {
+    if (max < ar18[i]) {
+      max = ar18[i];
+    }
+  }
+  out18.textContent = max;
+}
+
+// Task-19
+const ar19 = [15, 424, 313, 78, 241, 4, 45, 67];
+const btn19 = document.querySelector(".b-19");
+const out19 = document.querySelector(".out-19");
+
+btn19.onclick = fn19;
+
+function fn19() {
+  let min = ar19[0];
+  for (let i = 0; i < ar19.length; i++) {
+    if (min > ar19[i]) {
+      min = ar19[i];
+    }
+  }
+  out19.textContent = ar19.indexOf(min);
+}
 // Task-20
+
+const ar20 = [4, 5, 6, 7, 8, 9, 10];
+const btn20 = document.querySelector(".b-20");
+const out20 = document.querySelector(".out-20");
+
+btn20.onclick = fn20;
+function fn20() {
+  let sum = 0;
+  for (let i = 0; i < ar20.length; i++) {
+    sum += ar20[i];
+  }
+  out20.textContent = sum;
+}
