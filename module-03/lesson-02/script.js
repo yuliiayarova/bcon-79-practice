@@ -1,7 +1,15 @@
 // Task 1
 // Напишіть функцію fn1, яка при натисканні кнопки виводить в .out-1 змінну a1.
 
+const btn1 = document.querySelector(".b-1");
+const out1 = document.querySelector(".out-1");
 let a1 = 8;
+
+btn1.onclick = fn1;
+
+function fn1() {
+  out1.textContent = a1;
+}
 
 // Task 2.
 
@@ -30,6 +38,12 @@ document.querySelector(".b-2").onclick = function () {
 
 // Task 4
 // Напишіть функцію fn4, яка приймає ваш рік народження та обчислює (повертає) ваш вік.
+
+const btn4 = document.querySelector(".b-4");
+const out4 = document.querySelector(".out-4");
+
+btn4.onclick = fn4;
+function fn4(year) {}
 
 // Task 5
 // Напишіть функцію fn5, яка приймає ваше ім'я як параметр і повертає (return) кількість символів у ньому,
