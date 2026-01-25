@@ -161,7 +161,7 @@ const out13 = document.querySelector(".out-13");
 
 const fn13 = () => {
   const arr13_res = arr13.map(item => Number(item));
-  console.log("🚀 ~ fn13 ~ arr13_res:", arr13_res);
+  // console.log("🚀 ~ fn13 ~ arr13_res:", arr13_res);
 };
 
 fn13();
@@ -268,17 +268,51 @@ fn20();
 
 // Task 21
 const arr21 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
+const out21 = document.querySelector(".out-21");
+const btn21 = document.querySelector(".b-21");
+
+const fn21 = () => {
+  const arr21_res = arr21.filter((item, index) => index % 2 === 0);
+  out21.textContent = arr21_res;
+};
+
+btn21.onclick = fn21;
 
 // Task 22
 const arr22 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
+const out22 = document.querySelector(".out-22");
+const btn22 = document.querySelector(".b-22");
+
+const fn22 = () => {
+  out22.textContent = Array.isArray(arr22);
+};
+
+btn22.onclick = fn22;
 
 // Task 23
 const arr23 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
 const arr23_num = 9;
+const out23 = document.querySelector(".out-23");
+const btn23 = document.querySelector(".b-23");
+
+const fn23 = () => {
+  out23.textContent = arr23.includes(arr23_num);
+};
+
+btn23.onclick = fn23;
 
 // Task 24
 const arr24 = ["c", "C", "d", "e", "E"];
-const arr14_sum = "e";
+const arr14_sum = "D";
+const out24 = document.querySelector(".out-24");
+const btn24 = document.querySelector(".b-24");
+
+const fn24 = () => {
+  out24.textContent = arr24
+    .map(item => item.toLowerCase())
+    .includes(arr14_sum.toLowerCase());
+};
+btn24.onclick = fn24;
 
 // Task 25
 const arr25 = [
@@ -299,6 +333,18 @@ const arr25 = [
     pnum: "tr786259",
   },
 ];
+
+const out25 = document.querySelector(".out-25");
+const btn25 = document.querySelector(".b-25");
+
+const fn25 = () => {
+  const arr25_res = arr25.filter(
+    item => item.pnum !== "" && item.pnum.length === 6
+  );
+  out25.textContent = JSON.stringify(arr25_res);
+};
+
+btn25.onclick = fn25;
 
 //? RESULT:
 // [
