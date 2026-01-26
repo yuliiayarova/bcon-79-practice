@@ -272,7 +272,9 @@ const out21 = document.querySelector(".out-21");
 const btn21 = document.querySelector(".b-21");
 
 const fn21 = () => {
-  const arr21_res = arr21.filter((item, index) => index % 2 === 0);
+  const arr21_res = arr21.filter(
+    (item, index) => index % 2 === 0 && index !== 0
+  );
   out21.textContent = arr21_res;
 };
 
@@ -303,15 +305,18 @@ btn23.onclick = fn23;
 
 // Task 24
 const arr24 = ["c", "C", "d", "e", "E"];
-const arr14_sum = "D";
+const arr24_sum = "D";
 const out24 = document.querySelector(".out-24");
 const btn24 = document.querySelector(".b-24");
 
 const fn24 = () => {
   out24.textContent = arr24
-    .map(item => item.toLowerCase())
-    .includes(arr14_sum.toLowerCase());
+    .join("")
+    .toLowerCase()
+    .split("")
+    .includes(arr24_sum.toLowerCase());
 };
+
 btn24.onclick = fn24;
 
 // Task 25
@@ -339,9 +344,9 @@ const btn25 = document.querySelector(".b-25");
 
 const fn25 = () => {
   const arr25_res = arr25.filter(
-    item => item.pnum !== "" && item.pnum.length === 6
+    item => item.pmun !== "" && item.pnum.length === 6
   );
-  out25.textContent = JSON.stringify(arr25_res);
+  console.log("🚀 ~ fn25 ~ arr25_res:", arr25_res);
 };
 
 btn25.onclick = fn25;

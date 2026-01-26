@@ -5,3 +5,6 @@ const numbers = [5, 2, 9, 1, 5, 6];
 //Очікуваний результат:
 
 //[1, 2, 5, 5, 6, 9]
+
+const result = numbers.toSorted((a, b) => a - b);
+console.log("🚀 ~ result:", result);

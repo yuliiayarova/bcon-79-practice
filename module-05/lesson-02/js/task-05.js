@@ -5,3 +5,11 @@ const numbers = [10, 25, 48, 7, 32, 18];
 //Завдання: Знайдіть найбільше число за допомогою reduce.
 //Очікуваний результат:
 //48
+
+const result = numbers.reduce((prev, curr) => {
+  if (curr > prev) {
+    return curr;
+  }
+  return prev;
+}, 0);
+console.log("🚀 ~ result:", result);
