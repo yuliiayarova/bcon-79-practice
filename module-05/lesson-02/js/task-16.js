@@ -1,8 +1,11 @@
 //Фільтрування рядків, які починаються на "A"
 //Дано масив рядків:
 
-const words = ['Apple', 'Banana', 'Avocado', 'Cherry', 'Apricot'];
+const words = ["Apple", "Banana", "Avocado", "Cherry", "Apricot"];
 //Завдання: Використайте filter, щоб залишити лише ті рядки, які починаються на "A".
 //Очікуваний результат:
 
 //['Apple', 'Avocado', 'Apricot']
+
+const result = words.filter(word => word.startsWith("A"));
+console.log("🚀 ~ result:", result);

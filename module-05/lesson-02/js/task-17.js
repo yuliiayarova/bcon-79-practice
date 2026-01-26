@@ -18,7 +18,8 @@ const products = [
 const result = products
   .filter(product => product.name.includes("TV"))
   .map(product => {
-    return { ...products };
+    return { ...product };
   });
 
 console.log("🚀 ~ result:", result);
+console.log("🚀 ~ products:", products);

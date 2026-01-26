@@ -11,5 +11,6 @@ const nestedArray = [
 //[1, 2, 3, 4, 5, 6]
 
 const result = nestedArray.reduce((acc, arr) => {
-  return;
+  return acc.concat(arr);
 }, []);
+console.log("🚀 ~ result:", result);

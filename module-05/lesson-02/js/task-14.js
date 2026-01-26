@@ -5,6 +5,7 @@ const products = [
   { name: "Laptop", price: 1000 },
   { name: "Phone", price: 500 },
 ];
+
 //Завдання: За допомогою map створіть новий масив, додавши поле discountedPrice, яке є зниженою ціною (на 10%).
 //Очікуваний результат:
 
@@ -13,4 +14,9 @@ const products = [
 //  { name: 'Phone', price: 500, discountedPrice: 450 }
 //]
 
-const result = products.map(product => );
+const result = products.map(product => ({
+  ...product,
+  discountedPrice: product.price * 0.9,
+}));
+console.log("🚀 ~ result:", result);
+console.log("🚀 ~ products:", products);
