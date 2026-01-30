@@ -9,13 +9,22 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+    <style>
+      span {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid black;
+        display: inline-block;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <!-- Перше завдання
     При кліку на кнопку змінити value в input -->
-    <input type="text" id="input" value="Hello" />
-    <button>Click me</button>
+    <!-- <input type="text" id="input" value="Hello" />
+    <button>Click me</button> -->
 
     <!-- Друге завдання
     При кліку на кнопку показати alert із значенням, яке введено в input -->
@@ -41,9 +50,9 @@
     Вводимо число у input із id="test" число.
     При кліку на кнопку у input із id = "result" повинен виводити квадрта цього числа
     Якщо ввели не число, показувати alert із текстом "Ввели не число" -->
-    <!-- <input type="text" value="" placeholder="Введіть число" id="test">
-    <input id = "result" value = "Результат" disabled>
-    <button >Click me</button> -->
+    <!-- <input type="text" value="" placeholder="Введіть число" id="test" />
+    <input id="result" value="Результат" disabled />
+    <button>Click me</button> -->
 
     <!-- Шосте завдання -->
     <!-- Напишіть інтерфейс, щоб створити список.
@@ -65,8 +74,8 @@
     Зробіть так, щоб було дві функції: одна фарбує в червоний колір,
     інша в зелений і вони змінювали одна одну через removeEventListener.  -->
     <!-- <span>1</span>
-      <span>2</span>
-      <span>3</span> -->
+    <span>2</span>
+    <span>3</span> -->
 
     <!-- Дев'яте завдання -->
     <!-- Даний ol, у ньому декілька li. Під ol є кнопка, при натисканні на яку
@@ -74,14 +83,12 @@
     натисканні на кожен li, йому в кінець додавався '!'. Це мусить працювати і
     для знову доданих li. Завдання вирішіть за допомогою делегування (тобто
     подія має бути додана на ol). -->
-    <!--
-      <ol id="ol">
-        <li>пункт</li>
-        <li>пункт</li>
-        <li>пункт</li>
-      </ol>
-
-      <button id="btn">Додати li</button> -->
+    <button id="btn">Додати li</button>
+    <ol id="ol">
+      <li>пункт</li>
+      <li>пункт</li>
+      <li>пункт</li>
+    </ol>
 
     <!-- Десяте завдання -->
     <!-- Реалізуйте поведінку поведінку кнопок натискання на них (одна з них блокує
@@ -125,6 +132,6 @@
     <br /><br />
     <div>Наатиснуто клавішу: <span id="show">?</span></div> -->
 
-    <script src="./index.js" type="module"></script>
+    <script src="./script-extra.js" type="module"></script>
   </body>
 </html>
