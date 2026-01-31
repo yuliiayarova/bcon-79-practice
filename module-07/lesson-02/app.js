@@ -14,20 +14,22 @@ const store = {
 };
 const formEl = document.querySelector(".header-form");
 const taskList = document.querySelector(".tasks-list");
-const themeToggle = document.querySelector("#themeToggle");
+const themeToggleBtn = document.querySelector("#themeToggle");
+const bodyEl = document.body;
 
 init();
 formEl.addEventListener("submit", onFormSubmit);
 taskList.addEventListener("click", onTasksClick);
-themeToggle.addEventListener("click", onToggleTheme);
+themeToggleBtn.addEventListener("click", onToggleTheme);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  const taskDesc = event.target.elements.taskDescription.value.trim();
   const taskName = event.target.elements.taskName.value.trim();
+  const taskDesc = event.target.elements.taskDescription.value.trim();
   if (!taskName || !taskDesc) {
-    return alert("Всі поля мають бути заповнені!");
+    return alert("All field must be filled");
   }
+
   const task = {
     id: Date.now(),
     taskName,
@@ -35,7 +37,6 @@ function onFormSubmit(event) {
   };
 
   store.tasks = [...store.tasks, task];
-
   taskList.insertAdjacentHTML("beforeend", createTaskMarkup(task));
   event.target.reset();
 }
@@ -56,22 +57,21 @@ function init() {
 }
 
 function onTasksClick(event) {
-  const currentEl = event.target;
-  if (currentEl.nodeName !== "BUTTON") {
+  if (event.target.nodeName !== "BUTTON") {
     return;
   }
-  const taskID = +currentEl.dataset.id;
-  const filteredTasks = store.tasks.filter(task => taskID !== task.id);
+  const taskId = Number(event.target.dataset.id);
+  const filteredTasks = store.tasks.filter(task => taskId !== task.id);
   taskList.innerHTML = filteredTasks.map(createTaskMarkup).join("");
   store.tasks = filteredTasks;
 }
 
-function onToggleTheme(event) {
-  const bodyEL = event.target.closest("body");
-  const isLightTheme = bodyEL.classList.contains("theme-light");
-  if (isLightTheme) {
-    bodyEL.classList.replace("theme-light", "theme-dark");
-    return;
-  }
-  bodyEL.classList.replace("theme-dark", "theme-light");
+function onToggleTheme() {
+  bodyEl.classList.toggle("theme-light");
+  bodyEl.classList.toggle("theme-dark");
+
+  // const isLightTheme = bodyEl.classList.contains("theme-light");
+  // return isLightTheme
+  //   ? bodyEl.classList.replace("theme-light", "theme-dark")
+  //   : bodyEl.classList.replace("theme-dark", "theme-light");
 }
