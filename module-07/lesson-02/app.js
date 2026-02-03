@@ -1,77 +1,71 @@
-const store = {
-  tasks: [
-    {
-      id: 1,
-      taskName: "task1",
-      taskDesc: "task1desc",
-    },
-    {
-      id: 2,
-      taskName: "task2",
-      taskDesc: "task2desc",
-    },
-  ],
-};
 const formEl = document.querySelector(".header-form");
 const taskList = document.querySelector(".tasks-list");
-const themeToggleBtn = document.querySelector("#themeToggle");
-const bodyEl = document.body;
+const tasks = [
+  { id: 1, name: "task1", description: "descr", completed: false },
+  { id: 2, name: "task1", description: "descr", completed: false },
+];
 
-init();
-formEl.addEventListener("submit", onFormSubmit);
-taskList.addEventListener("click", onTasksClick);
-themeToggleBtn.addEventListener("click", onToggleTheme);
+formEl.addEventListener("submit", handleFormSubmit);
+taskList.addEventListener("click", handleButtonClick);
+taskList.addEventListener("click", handleCheckboxClick);
+renderTasks(tasks);
 
-function onFormSubmit(event) {
+function handleFormSubmit(event) {
   event.preventDefault();
-  const taskName = event.target.elements.taskName.value.trim();
-  const taskDesc = event.target.elements.taskDescription.value.trim();
-  if (!taskName || !taskDesc) {
-    return alert("All field must be filled");
-  }
-
+  const form = event.target;
+  const taskName = form.elements.taskName.value.trim();
+  const taskDescr = form.elements.taskDescription.value.trim();
   const task = {
     id: Date.now(),
-    taskName,
-    taskDesc,
+    name: taskName,
+    description: taskDescr,
+    completed: false,
   };
-
-  store.tasks = [...store.tasks, task];
-  taskList.insertAdjacentHTML("beforeend", createTaskMarkup(task));
-  event.target.reset();
+  tasks.push(task);
+  addTask(task);
+  form.reset();
 }
 
-function createTaskMarkup(task) {
-  return `<li class="task-list-item">
-  <button class="task-list-item-btn" data-id="${task.id}">Delete</button>
-  <h3>${task.taskName}</h3>
-  <p>${task.taskDesc}</p>
+function addTask(task) {
+  const taskMarkup = `<li class="task-list-item">
+  <div>
+  <input ${task.completed ? "checked" : ""} type="checkbox" />
+   <button class="task-list-item-btn" id="${task.id}">Delete</button>
+   </div>
+  <h3 class="${task.completed ? "completed" : ""}">${task.name}</h3>
+  <p class="${task.completed ? "completed" : ""}" > ${task.description}</p>
 </li>`;
+
+  taskList.insertAdjacentHTML("beforeend", taskMarkup);
 }
 
-function init() {
-  if (store.tasks.length === 0) {
+function deleteTask(tasks, taskId) {
+  const index = tasks.findIndex(task => task.id === taskId);
+  if (index !== -1) {
+    tasks.splice(index, 1);
+  }
+}
+
+function handleButtonClick(event) {
+  const clickedEl = event.target;
+  if (clickedEl.nodeName === "BUTTON") {
+    deleteTask(tasks, Number(clickedEl.id));
+    renderTasks(tasks);
+  }
+}
+
+function renderTasks(tasks) {
+  taskList.innerHTML = "";
+  tasks.map(addTask);
+}
+
+function handleCheckboxClick(event) {
+  if (event.target.nodeName !== "INPUT") {
     return;
   }
-  taskList.innerHTML = store.tasks.map(createTaskMarkup).join("");
-}
-
-function onTasksClick(event) {
-  if (event.target.nodeName !== "BUTTON") {
-    return;
-  }
-  const taskId = Number(event.target.dataset.id);
-  const filteredTasks = store.tasks.filter(task => taskId !== task.id);
-  taskList.innerHTML = filteredTasks.map(createTaskMarkup).join("");
-  store.tasks = filteredTasks;
-}
-
-function onToggleTheme() {
-  bodyEl.classList.toggle("theme-light");
-  bodyEl.classList.toggle("theme-dark");
-
-  // const isLightTheme = bodyEl.classList.contains("theme-light");
-  // return isLightTheme
-  //   ? bodyEl.classList.replace("theme-light", "theme-dark")
-  //   : bodyEl.classList.replace("theme-dark", "theme-light");
+  const itemEl = event.target.closest(".task-list-item");
+  // if (event.target.checked) {
+  itemEl.querySelector("h3").classList.toggle("completed");
+  itemEl.querySelector("p").classList.toggle("completed");
+  // }
 }

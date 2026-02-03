@@ -1,0 +1,12 @@
+.task-list-item {
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .completed {
+    text-decoration: line-through;
+  }
+}
