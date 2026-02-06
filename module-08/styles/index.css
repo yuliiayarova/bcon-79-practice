@@ -53,3 +53,7 @@ ul {
     color: currentColor;
   }
 }
+
+img {
+  object-fit: cover;
+}
