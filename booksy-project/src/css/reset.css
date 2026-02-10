@@ -32,3 +32,17 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+body {
+  background: #fceee6;
+  font-family: sans-serif;
+
+  color: #0b0500;
+}
+
+button {
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
